@@ -1,0 +1,3 @@
+const devConfig = {};
+
+export { devConfig };

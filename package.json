@@ -1,0 +1,18 @@
+{
+  "name": "node-react-code-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "install:backend": "concurrently \"yarn --cwd backends/PostService\" \"yarn --cwd backends/UserService\" \"yarn --cwd backends/Gateway\"",
+    "start:backend": "concurrently \"yarn --cwd backends/PostService start\" \"yarn --cwd backends/UserService start\" \"sleep 3 && yarn --cwd backends/Gateway start\"",
+    "install:graphiql": "yarn --cwd frontends/graphiql",
+    "start:graphiql": "yarn --cwd frontends/graphiql start",
+    "install:app": "yarn --cwd frontends/user-blog",
+    "start:app": "yarn --cwd frontends/user-blog start",
+    "cleanup": "concurrently \"yarn --cwd backends/PostService cleanup\" \"yarn --cwd backends/UserService cleanup\" \"yarn --cwd backends/Gateway cleanup\" \"yarn --cwd frontends/graphiql cleanup\" \"yarn --cwd frontends/user-blog cleanup\""
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.0"
+  }
+}
